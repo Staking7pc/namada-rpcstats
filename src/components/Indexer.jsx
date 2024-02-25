@@ -42,11 +42,7 @@ function RpcStatus(props) {
             {" "}
             link
           </a>{" "}
-          and check for the status using{" "}
-          <a href="https://github.com/strangelove-ventures/tmp2p/tree/main">
-            tmp2p
-          </a>{" "}
-          every 5 minutes
+          and check the lastest height from url/block/last every 5 minutes
         </p>
         <table id="validators">
           <thead>
