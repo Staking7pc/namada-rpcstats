@@ -5,9 +5,8 @@ import Header1 from "./Header";
 
 function RpcStatus(props) {
   const headers = [
-    { key: "moniker", label: "MONIKER" },
     { key: "endpoint", label: "END POINT" },
-    { key: "status", label: "STATUS" },
+    { key: "lastHeight", label: "LAST HEIGHT" },
   ];
 
   const [rpcDetails, setRpcDetails] = useState([]);
@@ -31,17 +30,24 @@ function RpcStatus(props) {
       });
   }, []);
 
-  const upEndpoints = rpcDetails
-    .filter((detail) => detail.status === "up")
-    .map((detail) => detail.endpoint);
-
   return (
     <div className="table-container">
       <div>
         <Header1 />
         <p></p>
         <h2 className="header1">Seeds/Peers Status </h2>
-        <p className="header1">We gather the endpoints every 10 minutes from  <a href="https://github.com/anoma/namada-shielded-expedition/tree/main?tab=readme-ov-file"> link</a> and check for the status using <a href="https://github.com/strangelove-ventures/tmp2p/tree/main">tmp2p</a> every 5 minutes</p>
+        <p className="header1">
+          We gather the endpoints every 10 minutes from{" "}
+          <a href="https://github.com/anoma/namada-shielded-expedition/tree/main?tab=readme-ov-file">
+            {" "}
+            link
+          </a>{" "}
+          and check for the status using{" "}
+          <a href="https://github.com/strangelove-ventures/tmp2p/tree/main">
+            tmp2p
+          </a>{" "}
+          every 5 minutes
+        </p>
         <table id="validators">
           <thead>
             <tr className="header">
@@ -52,12 +58,18 @@ function RpcStatus(props) {
           </thead>
           <tbody>
             {rpcDetails.map((val) => {
+              var className1="Active", difference=0, highestHeight=0
+              var heights = rpcDetails
+                .map((val) => parseInt(val.lastHeight))
+                .filter((height) => !isNaN(height) && height !== null);
+
+              if (heights.length > 0) {
+                var highestHeight = Math.max(...heights);
+                console.log(highestHeight)
+              }
+
               return (
-                <tr
-                  className={val.status != "up" ? "error" : ""}
-                  key={val.moniker}
-                >
-                  <td className="bold">{String(val.moniker).toUpperCase()}</td>
+                <tr key={val.moniker}>
                   <td
                     className="tooltip"
                     onClick={() => handleCopyClick(val.endpoint)}
@@ -71,15 +83,22 @@ function RpcStatus(props) {
                       {copiedUrl === val.endpoint ? "Copied!" : "Click to copy"}
                     </span>
                   </td>
-                  <td className={val.status === "up" ? "Active" : "InActive"}>
-                    {val.status}
+                  <td className={(highestHeight-val.lastHeight < 3)?'highlight':'InActive' }>
+                    {val.lastHeight}
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <h2 className="header1"> Inspired from <a href="https://github.com/strangelove-ventures/tmp2p/tree/main"> tmp2p</a> </h2>
+        <h2 className="header1">
+          {" "}
+          Inspired from{" "}
+          <a href="https://github.com/strangelove-ventures/tmp2p/tree/main">
+            {" "}
+            tmp2p
+          </a>{" "}
+        </h2>
       </div>
     </div>
   );
