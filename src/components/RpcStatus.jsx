@@ -24,7 +24,7 @@ function RpcStatus(props) {
   const [time1, setTime] = useState(); // CamelCased
   const [copiedUrl, setCopiedUrl] = useState(null);
   const [sortedColumn, setSortedColumn] = useState(null);
-  const [selectedNetwork, setSelectedNetwork] = useState('celestia');
+  const [selectedNetwork, setSelectedNetwork] = useState('shielded-expedition.88f17d1d14');
   let networks = [...new Set(rpcDetails.map(detail => detail.network))];
 
   const handleCopyClick = (text) => {
@@ -35,7 +35,7 @@ function RpcStatus(props) {
 
 
   useEffect(() => {
-    axios.get('https://celestia-tools.brightlystake.com/api/celestia/rpcstatus')
+    axios.get('https://namada-tools.brightlystake.com/api/namada/rpc-status')
       .then(res => {
         setRpcDetails(res.data);
         setTime(res.data[2].timestamp); // Renamed to setTime
@@ -51,8 +51,8 @@ function RpcStatus(props) {
 
       <div key={selectedNetwork}>
         <Header1 />
-        <Cards />
-        <h4 className='header1'> Last checked on {time1} UTC</h4>
+        <h2 className="header1">RPC Status </h2>
+        <p className="header1">We gather the endpoints every 10 minutes from <a href="https://github.com/anoma/namada-shielded-expedition/tree/main?tab=readme-ov-file"> link </a> and check for the status every 5 minutes</p>
         <div className="network-buttons">
           {networks.map(network => (
             <button
