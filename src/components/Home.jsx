@@ -19,7 +19,7 @@ export default function Cards() {
               </a>
             </div>
           </div>
-          <div class="card">
+          {/* <div class="card">
             <div class="card-header">
               <h3>INDEXER STATUS</h3>
             </div>
@@ -29,7 +29,7 @@ export default function Cards() {
                 Click here
               </a>
             </div>
-          </div>
+          </div> */}
           <div class="card">
             <div class="card-header">
               <h3>SEEDS PEERS STATUS</h3>
@@ -41,7 +41,7 @@ export default function Cards() {
               </a>
             </div>
           </div>
-          <div class="card">
+          {/* <div class="card">
             <div class="card-header">
               <h3>SELF TEST</h3>
             </div>
@@ -51,7 +51,7 @@ export default function Cards() {
                 Click here
               </a>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>
