@@ -21,7 +21,7 @@ function RpcStatus(props) {
 
   useEffect(() => {
     axios
-      .get("http://37.27.23.97:5001/api/namada/seed-peer-status")
+      .get("https://namada-tools.brightlystake.com/api/namada/seed-peer-status")
       .then((res) => {
         setRpcDetails(res.data);
       })
