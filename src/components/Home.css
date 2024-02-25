@@ -8,6 +8,10 @@
     background: #fefefe;
     font-family: sans-serif;
   }
+  h4 a {
+    text-decoration: none; /* Remove underline */
+  }
+  
   
   .container {
     width: 90%;

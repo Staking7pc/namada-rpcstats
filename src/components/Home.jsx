@@ -5,7 +5,7 @@ export default function Cards() {
     <body>
       <div class="container">
         <div class="heading">
-          <h4>Namada tools by Brightlystake</h4>
+          <h4>Namada tools by <a href="https://brightlystake.com/">Brightlystake</a></h4>
         </div>
         <div class="row">
           <div class="card">
@@ -44,17 +44,17 @@ export default function Cards() {
 
         </div>
         <div class="row">
-          {/* <div class="card">
+          <div class="card">
             <div class="card-header">
-              <h3>TEST YOUR ENDPOINT</h3>
+              <h3>RELAYER STATUS</h3>
             </div>
             <div class="card-body">
-              <p>Check the status of public rpc endpoints</p>
+              <p>Check the status of relayers in namada</p>
               <a target="_blank" rel="noopener noreferrer" href="/rpc-status" class="btn">
                 Click here
               </a>
             </div>
-          </div> */}
+          </div>
           <div class="card">
             <div class="card-header">
               <h3>SNAPSHOT</h3>
