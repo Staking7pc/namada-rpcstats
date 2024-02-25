@@ -44,7 +44,7 @@ export default function Cards() {
 
         </div>
         <div class="row">
-          <div class="card">
+          {/* <div class="card">
             <div class="card-header">
               <h3>RELAYER STATUS</h3>
             </div>
@@ -54,7 +54,7 @@ export default function Cards() {
                 Click here
               </a>
             </div>
-          </div>
+          </div> */}
           <div class="card">
             <div class="card-header">
               <h3>SNAPSHOT</h3>
