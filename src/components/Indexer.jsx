@@ -87,14 +87,6 @@ function RpcStatus(props) {
             })}
           </tbody>
         </table>
-        <h2 className="header1">
-          {" "}
-          Inspired from{" "}
-          <a href="https://github.com/strangelove-ventures/tmp2p/tree/main">
-            {" "}
-            tmp2p
-          </a>{" "}
-        </h2>
       </div>
     </div>
   );
